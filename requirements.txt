@@ -1,0 +1,6 @@
+Flask==2.0.2
+py-ecg-detectors==1.1.0
+neurokit2
+numpy
+pandas
+scikit-learn
