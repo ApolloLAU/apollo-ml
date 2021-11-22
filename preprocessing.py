@@ -5,9 +5,20 @@ from ecgdetectors import Detectors
 from hrv import HRV
 
 
+def normalize_ecg(values):
+    min_val = min(values)
+    max_val = max(values)
+    norm=[]
+    
+    for j in range(len(values)):
+        normalized_val = (values[j]-min_val)/(max_val-min_val)
+        norm.append(normalized_val)
+    return norm
+
 def process_ecg(json_message, fs_set):
     values = json_message
-    clean = nk.ecg_clean(values, sampling_rate=fs_set, method="neurokit")
+    vals_norm = normalize_ecg(values)
+    clean = nk.ecg_clean(vals_norm, sampling_rate=fs_set, method="neurokit")
     _, rpeaks = nk.ecg_peaks(clean, sampling_rate=fs_set)
     ybeat=[]
     fs = rpeaks.get('sampling_rate')
