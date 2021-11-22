@@ -1,7 +1,10 @@
 from flask import Flask, request, jsonify
 from preprocessing import process_ecg
+import os
 
 app = Flask(__name__)
+
+
 
 @app.route('/preprocess_ecg', methods=['POST'])
 def process_signal():
@@ -21,5 +24,5 @@ def process_signal():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=os.getenv('PORT', 8000))
 
