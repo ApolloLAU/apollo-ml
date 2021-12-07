@@ -1,0 +1,5 @@
+curl -X POST \
+  -H "X-Parse-Application-Id: frsAppID" \
+  -H "Content-Type: application/json" \
+  -d '{"ecg": "Y6gwqUk8j3"}' \
+  https://apollo-frs-backend.herokuapp.com/parse/functions/predict

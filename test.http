@@ -1,4 +1,4 @@
-POST http://localhost:8000/preprocess_ecg HTTP/1.1
+POST https://apollo-ml-backend.herokuapp.com/preprocess_ecg HTTP/1.1
 content-type: application/json
 
 {
